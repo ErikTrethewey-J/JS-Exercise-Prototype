@@ -77,21 +77,18 @@ Person.prototype.toString = function(){
 */
 
 function Car(model, milesPerGallon) {
-  this.model = 'BatMobile';
-  this.milesPerGallon = 20;
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
   this.tank = 0;
   this.odometer = 0;
 }
 
-Car.prototype.fill = function (gallons){
-  if (this.tank += 10){
-    return gallons;
-  }
+Car.prototype.fill = function (gallons){  
+     this.tank += gallons;
 }
 
 Car.prototype.drive = function(distance){
-  if (this.odometer += 50)
-    return distance;
+    this.odometer += distance;
 }
 
 Car.prototype.drive = function(distance){
@@ -117,32 +114,35 @@ Car.prototype.empty = function(out){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(name, age, favoriteToy) {
- this.name = 'Lucy';
-this.age = 5;
-this.favoriteToy = 'trains';
-  }
-Baby.prototype.todler = function (){
-  return 
-}
-Baby.prototype.play = function(){
-  return `Playing with ${this.favoriteToy}`
-}
+// function Baby(name, age, favoriteToy) {
+// this.name = 'Lucy';
+// this.age = 5;
+// this.favoriteToy = 'trains';
+//   }
+// Baby.prototype.todler = function (){
+//   return 
+// }
+// Baby.prototype.play = function(){
+//   return `Playing with ${this.favoriteToy}`
+// }
 
-function baby(name, age, favoriteToy){
-  Person.call(this, name, age, favoriteToy);
-  this.isbaby = name, age, favoriteToy.isbaby
+function Baby(name, age, favoriteToy){
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
 Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function(){
+        return `Playing with ${this.favoriteToy}`;
+}
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. the this keyword points to an item in a consturctor funtion within an object
+  2. you can use the this key word to access the item in an object
+  3. when using inheritance this automatically gets assigned to items and you can add new items for the child object 
+  4. the this keyword has a globable binding to the javascript syntax and wh
 */
 
 
